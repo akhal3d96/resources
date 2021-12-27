@@ -3,6 +3,7 @@
 COMMIT_NAME=$1
 OLD_DIR="$PWD"
 
+echo "== gh-pages BRANCH =="
 git worktree add /tmp/book gh-pages
 mdbook build
 rm -rf /tmp/book/* # this won't delete the .git directory
@@ -11,8 +12,13 @@ cd /tmp/book
 git add -A
 git commit -m "$COMMIT_NAME"
 git push origin gh-pages
-cd "$PWD"
 
+cd "$OLD_DIR"
+
+echo "== MASTER BRANCH =="
+git 
 git add -A
 git commit -m "$COMMIT_NAME"
 git push origin master
+
+git worktree remove /tmp/book
