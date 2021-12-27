@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 
 COMMIT_NAME=$1
+OLD_DIR="$PWD"
 
 git worktree add /tmp/book gh-pages
 mdbook build
@@ -10,7 +11,7 @@ cd /tmp/book
 git add -A
 git commit -m "$COMMIT_NAME"
 git push origin gh-pages
-cd -
+cd "$PWD"
 
 git add -A
 git commit -m "$COMMIT_NAME"
