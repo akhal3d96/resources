@@ -1,6 +1,6 @@
 # Resources
 
 [Home](./home.md)
-- [Docker](./docker.md)
 - [VIM](./vim.md)
+- [Vagrant](./vagrant.md)
 - [Miscellaneous](./miscellaneous.md)
