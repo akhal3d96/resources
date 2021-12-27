@@ -76,7 +76,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded affix "><a href="home.html">Home</a></li><li class="chapter-item expanded "><a href="docker.html"><strong aria-hidden="true">1.</strong> Docker</a></li><li class="chapter-item expanded "><a href="vim.html"><strong aria-hidden="true">2.</strong> VIM</a></li><li class="chapter-item expanded "><a href="miscellaneous.html"><strong aria-hidden="true">3.</strong> Miscellaneous</a></li></ol>
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="home.html">Home</a></li><li class="chapter-item expanded "><a href="vim.html"><strong aria-hidden="true">1.</strong> VIM</a></li><li class="chapter-item expanded "><a href="vagrant.html"><strong aria-hidden="true">2.</strong> Vagrant</a></li><li class="chapter-item expanded "><a href="miscellaneous.html"><strong aria-hidden="true">3.</strong> Miscellaneous</a></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
@@ -137,29 +137,37 @@
                     <main>
                         <h1 id="home"><a class="header" href="#home">Home</a></h1>
 <p>My name is Ahmed Khaled a computer hobbyist and a DevOps Engineer. This is my resources list that I collect regulary to help me in my daily work and personal hobbies and projects.</p>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="docker"><a class="header" href="#docker">Docker</a></h1>
-<h2 id="difference-between-cmd-and-entrypoint"><a class="header" href="#difference-between-cmd-and-entrypoint">Difference between <code>CMD</code> and <code>ENTRYPOINT</code></a></h2>
-<p>CMD is replaced if an argument was provided to <code>docker run</code> while ENTRYPOINT will append the arguments to the value defined in the entry point. </p>
-<p>You can use both inside the Dockerfile as the parameters of <code>CMD</code> will be appended to <code>ENTRYPOINT</code>.</p>
-<h3 id="cmd"><a class="header" href="#cmd">CMD</a></h3>
-<pre><code class="language-dockerfile"># docker run ubuntu-sleep sleep 10
-
-FROM ubuntu
-
-CMD sleep
-</code></pre>
-<h3 id="entrypoint"><a class="header" href="#entrypoint">ENTRYPOINT</a></h3>
-<pre><code class="language-dockerfile"># docker run ubuntu-sleep 10
-
-FROM ubuntu
-
-ENTRYPOINT [&quot;sleep&quot;]
-</code></pre>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="vim"><a class="header" href="#vim">VIM</a></h1>
 <h2 id="write-with-sudo"><a class="header" href="#write-with-sudo">Write with sudo</a></h2>
 <p>Save a file opened with non-root user</p>
 <pre><code>:w !sudo tee %
 </code></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="vagrant"><a class="header" href="#vagrant">Vagrant</a></h1>
+<h2 id="create-cluster-of-multiple-nodes"><a class="header" href="#create-cluster-of-multiple-nodes">Create cluster of multiple nodes</a></h2>
+<pre><code class="language-ruby">
+Vagrant.configure(&quot;2&quot;) do |config|
+  
+  # Specif the number of nodes
+  num_of_nodes = 3
+  
+  (0..(num_of_nodes - 1)).each do |node|
+
+	# Append a number to the node name
+    node_name = &quot;vm-#{node + 1}&quot;
+
+    config.vm.define node_name do |node|
+		
+		# VM Settings such as network and disks
+
+      node.vm.provider &quot;virtualbox&quot; do |vb|
+        # Vendor specific settings such as VirtualBox GUI 
+      end
+    end
+  end
+end
+</code></pre>
+<h2 id="references"><a class="header" href="#references">References</a></h2>
+<p><a href="https://www.vagrantup.com/docs">Vagrant Documentation</a></p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="miscellaneous"><a class="header" href="#miscellaneous">Miscellaneous</a></h1>
 <ul>
 <li>Invert image colors <code>gm convert &lt;input&gt; -negate &lt;output&gt;</code></li>
