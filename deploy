@@ -16,7 +16,6 @@ git push origin gh-pages
 cd "$OLD_DIR"
 
 echo "== MASTER BRANCH =="
-git 
 git add -A
 git commit -m "$COMMIT_NAME"
 git push origin master
