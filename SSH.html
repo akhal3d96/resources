@@ -3,8 +3,7 @@
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
-        <title>Ahmed Khaled Resources</title>
-        <meta name="robots" content="noindex" />
+        <title>SSH - Ahmed Khaled Resources</title>
         <!-- Custom HTML head -->
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="My name is Ahmed Khaled a computer hobbyist and a DevOps Engineer. This is my resources list that I collect regulary to help me in my daily work and personal hobbies and projects.">
@@ -76,7 +75,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded affix "><a href="home.html">Home</a></li><li class="chapter-item expanded "><a href="SSH.html"><strong aria-hidden="true">1.</strong> SSH</a></li><li class="chapter-item expanded "><a href="vim.html"><strong aria-hidden="true">2.</strong> VIM</a></li><li class="chapter-item expanded "><a href="vagrant.html"><strong aria-hidden="true">3.</strong> Vagrant</a></li><li class="chapter-item expanded "><a href="nc.html"><strong aria-hidden="true">4.</strong> nc</a></li><li class="chapter-item expanded "><a href="miscellaneous.html"><strong aria-hidden="true">5.</strong> Miscellaneous</a></li></ol>
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="home.html">Home</a></li><li class="chapter-item expanded "><a href="SSH.html" class="active"><strong aria-hidden="true">1.</strong> SSH</a></li><li class="chapter-item expanded "><a href="vim.html"><strong aria-hidden="true">2.</strong> VIM</a></li><li class="chapter-item expanded "><a href="vagrant.html"><strong aria-hidden="true">3.</strong> Vagrant</a></li><li class="chapter-item expanded "><a href="nc.html"><strong aria-hidden="true">4.</strong> nc</a></li><li class="chapter-item expanded "><a href="miscellaneous.html"><strong aria-hidden="true">5.</strong> Miscellaneous</a></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
@@ -135,10 +134,7 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h1 id="home"><a class="header" href="#home">Home</a></h1>
-<p>My name is Ahmed Khaled a computer hobbyist and a DevOps Engineer. This is my resources list that I collect regulary to help me in my daily work and personal hobbies and projects.</p>
-<p>For my blog visit: <a href="https://akhal3d96.github.io/">akhal3d.github.io</a></p>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="ssh"><a class="header" href="#ssh">SSH</a></h1>
+                        <h1 id="ssh"><a class="header" href="#ssh">SSH</a></h1>
 <h2 id="ssh-keys"><a class="header" href="#ssh-keys">SSH Keys</a></h2>
 <h3 id="create-a-passwordless-key-pair"><a class="header" href="#create-a-passwordless-key-pair">Create a passwordless key pair</a></h3>
 <pre><code>ssh-keygen -t ed25519 -C &quot;email@example.com&quot; -f ./path/to/key/id_ed25519 -N &quot;&quot;
@@ -166,62 +162,29 @@
 <li><a href="https://goteleport.com/blog/ssh-tunneling-explained/">SSH Tunneling Explained
 </a></li>
 </ul>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="vim"><a class="header" href="#vim">VIM</a></h1>
-<h2 id="write-with-sudo"><a class="header" href="#write-with-sudo">Write with sudo</a></h2>
-<p>Save a file opened with non-root user</p>
-<pre><code>:w !sudo tee %
-</code></pre>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="vagrant"><a class="header" href="#vagrant">Vagrant</a></h1>
-<h2 id="create-cluster-of-multiple-nodes"><a class="header" href="#create-cluster-of-multiple-nodes">Create cluster of multiple nodes</a></h2>
-<pre><code class="language-ruby">
-Vagrant.configure(&quot;2&quot;) do |config|
-  
-  # Specif the number of nodes
-  num_of_nodes = 3
-  
-  (0..(num_of_nodes - 1)).each do |node|
-
-	# Append a number to the node name
-    node_name = &quot;vm-#{node + 1}&quot;
-
-    config.vm.define node_name do |node|
-		
-		# VM Settings such as network and disks
-
-      node.vm.provider &quot;virtualbox&quot; do |vb|
-        # Vendor specific settings such as VirtualBox GUI 
-      end
-    end
-  end
-end
-</code></pre>
-<h2 id="references"><a class="header" href="#references">References</a></h2>
-<p><a href="https://www.vagrantup.com/docs">Vagrant Documentation</a></p>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="nc"><a class="header" href="#nc">nc</a></h1>
-<h2 id="copy-text-between-two-sessions-on-the-same-server"><a class="header" href="#copy-text-between-two-sessions-on-the-same-server">Copy text between two sessions on the same server</a></h2>
-<p>First session:</p>
-<pre><code>nc -l -p &lt;PORT&gt;
-</code></pre>
-<p>Second session:</p>
-<pre><code>nc 127.0.0.1 &lt;PORT&gt; # Same port in the first session
-</code></pre>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="miscellaneous"><a class="header" href="#miscellaneous">Miscellaneous</a></h1>
-<ul>
-<li>Invert image colors <code>gm convert &lt;input&gt; -negate &lt;output&gt;</code></li>
-<li>Copy directory recursively <code>cp -a /source/ /dest/</code></li>
-<li>curl basic auth: <code>curl -u username:password https://example.com</code></li>
-</ul>
 
                     </main>
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="home.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                            <a rel="next" href="vim.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
                         <div style="clear: both"></div>
                     </nav>
                 </div>
             </div>
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="home.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                    <a rel="next" href="vim.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
             </nav>
 
         </div>
@@ -237,10 +200,5 @@ end
         <script src="book.js" type="text/javascript" charset="utf-8"></script>
 
         <!-- Custom JS scripts -->
-        <script type="text/javascript">
-        window.addEventListener('load', function() {
-            window.setTimeout(window.print, 100);
-        });
-        </script>
     </body>
 </html>
