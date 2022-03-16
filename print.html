@@ -76,7 +76,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded affix "><a href="home.html">Home</a></li><li class="chapter-item expanded "><a href="SSH.html"><strong aria-hidden="true">1.</strong> SSH</a></li><li class="chapter-item expanded "><a href="vim.html"><strong aria-hidden="true">2.</strong> VIM</a></li><li class="chapter-item expanded "><a href="vagrant.html"><strong aria-hidden="true">3.</strong> Vagrant</a></li><li class="chapter-item expanded "><a href="nc.html"><strong aria-hidden="true">4.</strong> nc</a></li><li class="chapter-item expanded "><a href="miscellaneous.html"><strong aria-hidden="true">5.</strong> Miscellaneous</a></li></ol>
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="home.html">Home</a></li><li class="chapter-item expanded "><a href="SSH.html"><strong aria-hidden="true">1.</strong> SSH</a></li><li class="chapter-item expanded "><a href="postgresql.html"><strong aria-hidden="true">2.</strong> PostgreSQL</a></li><li class="chapter-item expanded "><a href="vim.html"><strong aria-hidden="true">3.</strong> VIM</a></li><li class="chapter-item expanded "><a href="vagrant.html"><strong aria-hidden="true">4.</strong> Vagrant</a></li><li class="chapter-item expanded "><a href="nc.html"><strong aria-hidden="true">5.</strong> nc</a></li><li class="chapter-item expanded "><a href="miscellaneous.html"><strong aria-hidden="true">6.</strong> Miscellaneous</a></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
@@ -166,6 +166,15 @@
 <li><a href="https://goteleport.com/blog/ssh-tunneling-explained/">SSH Tunneling Explained
 </a></li>
 </ul>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="postgresql"><a class="header" href="#postgresql">PostgreSQL</a></h1>
+<p>You can use <code>PGPASSWORD</code> variable to pass the password to your database.</p>
+<h2 id="backup-and-restoration"><a class="header" href="#backup-and-restoration">Backup and Restoration</a></h2>
+<h3 id="backup"><a class="header" href="#backup">Backup</a></h3>
+<pre><code>pg_dump -h DB_HOST -U DB_USER DB_NAME | gzip -9 &gt; DB_BACKUP_NAME_$(date +%F).sql.gz
+</code></pre>
+<h3 id="restore"><a class="header" href="#restore">Restore</a></h3>
+<pre><code>gunzip -c DB_BACKUP_NAME.sql.gz | psql -h DB_HOST -U DB_USER DB_NAME
+</code></pre>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="vim"><a class="header" href="#vim">VIM</a></h1>
 <h2 id="write-with-sudo"><a class="header" href="#write-with-sudo">Write with sudo</a></h2>
 <p>Save a file opened with non-root user</p>
@@ -211,6 +220,7 @@ end
 <li>Copy directory recursively <code>cp -a /source/ /dest/</code></li>
 <li>curl basic auth: <code>curl -u username:password https://example.com</code></li>
 <li>Trigger sentry cleanup <code>docker exec sentry_onpremise_sentry-cleanup_1 gosu sentry sentry cleanup --days &lt;number of days&gt;</code></li>
+<li>Check TLS version of a website <code>openssl s_client -connect example.com:443 -tls1_2</code></li>
 </ul>
 
                     </main>
