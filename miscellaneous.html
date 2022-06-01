@@ -75,7 +75,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded affix "><a href="home.html">Home</a></li><li class="chapter-item expanded "><a href="SSH.html"><strong aria-hidden="true">1.</strong> SSH</a></li><li class="chapter-item expanded "><a href="postgresql.html"><strong aria-hidden="true">2.</strong> PostgreSQL</a></li><li class="chapter-item expanded "><a href="vim.html"><strong aria-hidden="true">3.</strong> VIM</a></li><li class="chapter-item expanded "><a href="vagrant.html"><strong aria-hidden="true">4.</strong> Vagrant</a></li><li class="chapter-item expanded "><a href="nc.html"><strong aria-hidden="true">5.</strong> nc</a></li><li class="chapter-item expanded "><a href="miscellaneous.html" class="active"><strong aria-hidden="true">6.</strong> Miscellaneous</a></li></ol>
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="home.html">Home</a></li><li class="chapter-item expanded "><a href="SSH.html"><strong aria-hidden="true">1.</strong> SSH</a></li><li class="chapter-item expanded "><a href="postgresql.html"><strong aria-hidden="true">2.</strong> PostgreSQL</a></li><li class="chapter-item expanded "><a href="vim.html"><strong aria-hidden="true">3.</strong> VIM</a></li><li class="chapter-item expanded "><a href="vagrant.html"><strong aria-hidden="true">4.</strong> Vagrant</a></li><li class="chapter-item expanded "><a href="nc.html"><strong aria-hidden="true">5.</strong> nc</a></li><li class="chapter-item expanded "><a href="certbot.html"><strong aria-hidden="true">6.</strong> certbot</a></li><li class="chapter-item expanded "><a href="miscellaneous.html" class="active"><strong aria-hidden="true">7.</strong> Miscellaneous</a></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
@@ -141,13 +141,14 @@
 <li>curl basic auth: <code>curl -u username:password https://example.com</code></li>
 <li>Trigger sentry cleanup <code>docker exec sentry_onpremise_sentry-cleanup_1 gosu sentry sentry cleanup --days &lt;number of days&gt;</code></li>
 <li>Check TLS version of a website <code>openssl s_client -connect example.com:443 -tls1_2</code></li>
+<li>Fill memory <code>cat /dev/zero | head -c 3G | tail</code></li>
 </ul>
 
                     </main>
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
-                            <a rel="prev" href="nc.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                            <a rel="prev" href="certbot.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                                 <i class="fa fa-angle-left"></i>
                             </a>
                         <div style="clear: both"></div>
@@ -156,7 +157,7 @@
             </div>
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
-                    <a rel="prev" href="nc.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                    <a rel="prev" href="certbot.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                         <i class="fa fa-angle-left"></i>
                     </a>
             </nav>
