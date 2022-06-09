@@ -135,6 +135,9 @@
                 <div id="content" class="content">
                     <main>
                         <h1 id="certbot"><a class="header" href="#certbot">certbot</a></h1>
+<p>In case of custom web server configuration I find DNS challenges more convenient and easier to work with.</p>
+<pre><code>certbot certonly --manual --preferred-challenges=dns --email email@example.com  -d subdomain.example.com
+</code></pre>
 
                     </main>
 
