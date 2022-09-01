@@ -2,6 +2,8 @@
 
 [Home](./home.md)
 - [SSH](./SSH.md)
+- [sed](./sed.md)
+- [SQL Server](./sqlserver.md)
 - [PostgreSQL](./postgresql.md)
 - [VIM](./vim.md)
 - [Vagrant](./vagrant.md)
