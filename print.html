@@ -76,7 +76,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded affix "><a href="home.html">Home</a></li><li class="chapter-item expanded "><a href="SSH.html"><strong aria-hidden="true">1.</strong> SSH</a></li><li class="chapter-item expanded "><a href="postgresql.html"><strong aria-hidden="true">2.</strong> PostgreSQL</a></li><li class="chapter-item expanded "><a href="vim.html"><strong aria-hidden="true">3.</strong> VIM</a></li><li class="chapter-item expanded "><a href="vagrant.html"><strong aria-hidden="true">4.</strong> Vagrant</a></li><li class="chapter-item expanded "><a href="nc.html"><strong aria-hidden="true">5.</strong> nc</a></li><li class="chapter-item expanded "><a href="certbot.html"><strong aria-hidden="true">6.</strong> certbot</a></li><li class="chapter-item expanded "><a href="miscellaneous.html"><strong aria-hidden="true">7.</strong> Miscellaneous</a></li></ol>
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="home.html">Home</a></li><li class="chapter-item expanded "><a href="SSH.html"><strong aria-hidden="true">1.</strong> SSH</a></li><li class="chapter-item expanded "><a href="sed.html"><strong aria-hidden="true">2.</strong> sed</a></li><li class="chapter-item expanded "><a href="sqlserver.html"><strong aria-hidden="true">3.</strong> SQL Server</a></li><li class="chapter-item expanded "><a href="postgresql.html"><strong aria-hidden="true">4.</strong> PostgreSQL</a></li><li class="chapter-item expanded "><a href="vim.html"><strong aria-hidden="true">5.</strong> VIM</a></li><li class="chapter-item expanded "><a href="vagrant.html"><strong aria-hidden="true">6.</strong> Vagrant</a></li><li class="chapter-item expanded "><a href="nc.html"><strong aria-hidden="true">7.</strong> nc</a></li><li class="chapter-item expanded "><a href="certbot.html"><strong aria-hidden="true">8.</strong> certbot</a></li><li class="chapter-item expanded "><a href="miscellaneous.html"><strong aria-hidden="true">9.</strong> Miscellaneous</a></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
@@ -166,6 +166,40 @@
 <li><a href="https://goteleport.com/blog/ssh-tunneling-explained/">SSH Tunneling Explained
 </a></li>
 </ul>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="sed"><a class="header" href="#sed">sed</a></h1>
+<h2 id="delete-line-containing-string"><a class="header" href="#delete-line-containing-string">Delete line containing string</a></h2>
+<pre><code>sed -i '/string/d' file.txt
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="sql-server"><a class="header" href="#sql-server">SQL Server</a></h1>
+<h2 id="common-commands"><a class="header" href="#common-commands">Common commands</a></h2>
+<p>List all the databases</p>
+<pre><code class="language-sql">SELECT name FROM master.dbo.sysdatabases
+</code></pre>
+<h2 id="kubernetes"><a class="header" href="#kubernetes">Kubernetes</a></h2>
+<pre><code>kubectl run -it --rm --restart=Never sqltools --image=mcr.microsoft.com/mssql-tools sql -S &lt;HOST&gt; -U &lt;USERNAME&gt; -P &lt;PASSWORD&gt;
+</code></pre>
+<p>Notes: </p>
+<ol>
+<li>Add <code>-Q</code> to excute query without running into the interactive console.</li>
+<li><code>-P</code> is optional.</li>
+</ol>
+<h2 id="aws-rds"><a class="header" href="#aws-rds">AWS RDS</a></h2>
+<p>Create a backup to S3</p>
+<pre><code>exec msdb.dbo.rds_backup_database
+	@source_db_name='database_name',
+	@s3_arn_to_backup_to='arn:aws:s3:::bucket_name/file_name.extension',
+	[@kms_master_key_arn='arn:aws:kms:region:account-id:key/key-id'],	
+	[@overwrite_s3_backup_file=0|1],
+	[@type='DIFFERENTIAL|FULL'],
+	[@number_of_files=n];
+</code></pre>
+<p>Check backup task status</p>
+<pre><code>exec msdb.dbo.rds_task_status @task_id=5;
+</code></pre>
+<h2 id="references"><a class="header" href="#references">References</a></h2>
+<ol>
+<li>https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/SQLServer.Procedural.Importing.html</li>
+</ol>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="postgresql"><a class="header" href="#postgresql">PostgreSQL</a></h1>
 <p>You can use <code>PGPASSWORD</code> variable to pass the password to your database.</p>
 <h2 id="backup-and-restoration"><a class="header" href="#backup-and-restoration">Backup and Restoration</a></h2>
@@ -204,7 +238,7 @@ Vagrant.configure(&quot;2&quot;) do |config|
   end
 end
 </code></pre>
-<h2 id="references"><a class="header" href="#references">References</a></h2>
+<h2 id="references-1"><a class="header" href="#references-1">References</a></h2>
 <p><a href="https://www.vagrantup.com/docs">Vagrant Documentation</a></p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="nc"><a class="header" href="#nc">nc</a></h1>
 <h2 id="copy-text-between-two-sessions-on-the-same-server"><a class="header" href="#copy-text-between-two-sessions-on-the-same-server">Copy text between two sessions on the same server</a></h2>
