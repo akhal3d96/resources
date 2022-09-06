@@ -6,14 +6,16 @@
 List all the databases
 
 ```sql
-SELECT name FROM master.dbo.sysdatabases
+SELECT name FROM master.dbo.sysdatabases;
 ```
 
 
 ## Kubernetes
 
-```
-kubectl run -it --rm --restart=Never sqltools --image=mcr.microsoft.com/mssql-tools sql -S <HOST> -U <USERNAME> -P <PASSWORD>
+```bash
+kubectl run --restart=Never sqltools --image=mcr.microsoft.com/mssql-tools --command sleep 99d
+
+kubectl exec -it sqltools -- /opt/mssql-tools/bin/sqlcmd -S <HOSTNAME> -U <USERNAME> -P <PASSWORD>
 ```
 
 
@@ -25,7 +27,7 @@ Notes:
 
 Create a backup to S3
 
-```
+```sql
 exec msdb.dbo.rds_backup_database
 	@source_db_name='database_name',
 	@s3_arn_to_backup_to='arn:aws:s3:::bucket_name/file_name.extension',
@@ -37,12 +39,12 @@ exec msdb.dbo.rds_backup_database
 
 
 Check backup task status
-```
-exec msdb.dbo.rds_task_status @task_id=5;
+```sql
+exec msdb.dbo.rds_task_status @task_id=<TASK_ID>;
 ```
 
 
 
 ## References
 
-1. https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/SQLServer.Procedural.Importing.html
+1. (Importing and exporting SQL Server databases using native backup and restore)[https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/SQLServer.Procedural.Importing.html]
