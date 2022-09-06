@@ -140,7 +140,7 @@
 <pre><code class="language-sql">SELECT name FROM master.dbo.sysdatabases;
 </code></pre>
 <h2 id="kubernetes"><a class="header" href="#kubernetes">Kubernetes</a></h2>
-<pre><code class="language-bash">kubectl run --restart=Never sqltools --image=mcr.microsoft.com/mssql-tools --command sleep 99d
+<pre><code>kubectl run --restart=Never sqltools --image=mcr.microsoft.com/mssql-tools --command sleep 99d
 
 kubectl exec -it sqltools -- /opt/mssql-tools/bin/sqlcmd -S &lt;HOSTNAME&gt; -U &lt;USERNAME&gt; -P &lt;PASSWORD&gt;
 </code></pre>
@@ -164,7 +164,7 @@ kubectl exec -it sqltools -- /opt/mssql-tools/bin/sqlcmd -S &lt;HOSTNAME&gt; -U 
 </code></pre>
 <h2 id="references"><a class="header" href="#references">References</a></h2>
 <ol>
-<li>(Importing and exporting SQL Server databases using native backup and restore)[https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/SQLServer.Procedural.Importing.html]</li>
+<li><a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/SQLServer.Procedural.Importing.html">Importing and exporting SQL Server databases using native backup and restore</a></li>
 </ol>
 
                     </main>
