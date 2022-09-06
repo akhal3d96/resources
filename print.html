@@ -173,10 +173,12 @@
 <div style="break-before: page; page-break-before: always;"></div><h1 id="sql-server"><a class="header" href="#sql-server">SQL Server</a></h1>
 <h2 id="common-commands"><a class="header" href="#common-commands">Common commands</a></h2>
 <p>List all the databases</p>
-<pre><code class="language-sql">SELECT name FROM master.dbo.sysdatabases
+<pre><code class="language-sql">SELECT name FROM master.dbo.sysdatabases;
 </code></pre>
 <h2 id="kubernetes"><a class="header" href="#kubernetes">Kubernetes</a></h2>
-<pre><code>kubectl run -it --rm --restart=Never sqltools --image=mcr.microsoft.com/mssql-tools sql -S &lt;HOST&gt; -U &lt;USERNAME&gt; -P &lt;PASSWORD&gt;
+<pre><code class="language-bash">kubectl run --restart=Never sqltools --image=mcr.microsoft.com/mssql-tools --command sleep 99d
+
+kubectl exec -it sqltools -- /opt/mssql-tools/bin/sqlcmd -S &lt;HOSTNAME&gt; -U &lt;USERNAME&gt; -P &lt;PASSWORD&gt;
 </code></pre>
 <p>Notes: </p>
 <ol>
@@ -185,7 +187,7 @@
 </ol>
 <h2 id="aws-rds"><a class="header" href="#aws-rds">AWS RDS</a></h2>
 <p>Create a backup to S3</p>
-<pre><code>exec msdb.dbo.rds_backup_database
+<pre><code class="language-sql">exec msdb.dbo.rds_backup_database
 	@source_db_name='database_name',
 	@s3_arn_to_backup_to='arn:aws:s3:::bucket_name/file_name.extension',
 	[@kms_master_key_arn='arn:aws:kms:region:account-id:key/key-id'],	
@@ -194,11 +196,11 @@
 	[@number_of_files=n];
 </code></pre>
 <p>Check backup task status</p>
-<pre><code>exec msdb.dbo.rds_task_status @task_id=5;
+<pre><code class="language-sql">exec msdb.dbo.rds_task_status @task_id=&lt;TASK_ID&gt;;
 </code></pre>
 <h2 id="references"><a class="header" href="#references">References</a></h2>
 <ol>
-<li>https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/SQLServer.Procedural.Importing.html</li>
+<li>(Importing and exporting SQL Server databases using native backup and restore)[https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/SQLServer.Procedural.Importing.html]</li>
 </ol>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="postgresql"><a class="header" href="#postgresql">PostgreSQL</a></h1>
 <p>You can use <code>PGPASSWORD</code> variable to pass the password to your database.</p>
